@@ -1,20 +1,15 @@
+// components/logo.tsx
 import Image from 'next/image'
 
-interface LogoProps {
-  className?: string;
-}
-
-export default function Logo({ className = "w-32 h-32" }: LogoProps) {
+export default function Logo() {
   return (
-    <div className={`relative ${className}`}>
+    <div>
       <Image
-        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo-vrEhhqGRnCjI5YlJZHwqFQy1OvsedT.png"
-        alt="Nova Sensação"
-        layout="fill"
-        objectFit="contain"
-        priority
+        src="/images/logo.png" 
+        alt="Logo"
+        width={150} 
+        height={100} 
       />
     </div>
-  )
+  );
 }
-

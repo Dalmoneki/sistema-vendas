@@ -1,94 +1,86 @@
-import './globals.css';
-import './reset.css'; // Importe o reset.css
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import Link from 'next/link';
-import Logo from '@/components/logo';
-
-const inter = Inter({ subsets: ['latin'] });
-
-export const metadata: Metadata = {
-  title: 'Sistema de Gestão de Cosméticos',
-  description: 'Nova Sensação Cosméticos',
-};
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR">
-      <body className={`${inter.className} flex flex-col min-h-screen`}>
-        {/* Cabeçalho fixo */}
-        <header className="bg-secondary text-primary sticky top-0 z-10">
-          <div className="container mx-auto px-4 flex items-center py-2">
-            <div className="flex items-center gap-4">
-              <Logo className="w-32 h-32" />
-              <div className="ml-2">
-                <h1 className="text-primary text-2xl font-semibold leading-tight">
-                  Sistema de Gestão de Cosméticos
-                </h1>
-                <p className="text-primary text-base">Nova Sensação Cosméticos</p>
+      <body
+        style={{
+          margin: 0,
+          padding: 0,
+          fontFamily: "Arial, sans-serif",
+          backgroundColor: "#f9f9f9",
+          color: "#333",
+        }}
+      >
+        <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+          {/* Cabeçalho fixo */}
+          <header
+            style={{
+              backgroundColor: "#333",
+              color: "gold",
+              padding: "10px",
+              textAlign: "center",
+              position: "fixed",
+              top: 0,
+              left: 0,
+              width: "100%",
+              zIndex: 1000,
+              boxShadow: "0 2px 5px rgba(0, 0, 0, 0.3)",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                padding: "0 20px",
+              }}
+            >
+              <img
+                src="/images/logo.png"
+                alt="Logo"
+                style={{ height: "50px", width: "auto" }}
+              />
+              <h1 style={{ fontSize: "24px" }}>
+                Sistema de Vendas - Controle Simplificado
+              </h1>
+              <div>
+                <button style={buttonStyle}>Produtos</button>
+                <button style={buttonStyle}>Vendas</button>
+                <button style={buttonStyle}>Fornecedores</button>
+                <button style={buttonStyle}>Estoque</button>
               </div>
             </div>
-            <nav className="ml-auto">
-              <ul className="flex gap-6">
-                <li>
-                  <Link
-                    href="/vendas"
-                    className="text-primary hover:text-[#FFC93D] transition-colors text-lg"
-                  >
-                    Vendas
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/estoque"
-                    className="text-primary hover:text-[#FFC93D] transition-colors text-lg"
-                  >
-                    Estoque
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/clientes"
-                    className="text-primary hover:text-[#FFC93D] transition-colors text-lg"
-                  >
-                    Clientes
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/relatorios"
-                    className="text-primary hover:text-[#FFC93D] transition-colors text-lg"
-                  >
-                    Relatórios
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/importar-notas"
-                    className="text-primary hover:text-[#FFC93D] transition-colors text-lg"
-                  >
-                    Importar Notas
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </header>
+          </header>
 
-        {/* Conteúdo principal */}
-        <main className="bg-[#FFE4E1] py-4"> 
-          <div className="container mx-auto max-w-4xl px-4">{children}</div>
-        </main>
+          {/* Espaço reservado para o cabeçalho */}
+          <div style={{ height: "80px" }}></div>
 
-        {/* Rodapé */}
-        <footer className="bg-secondary text-primary text-center py-4">
-          <p>© 2024 Nova Sensação Cosméticos. Desenvolvido com ❤️ por Gemini IA.</p>
-        </footer>
+          {/* Conteúdo principal */}
+          <main style={{ flex: 1, padding: "20px" }}>{children}</main>
+
+          {/* Rodapé */}
+          <footer
+            style={{
+              backgroundColor: "#333",
+              color: "gold",
+              textAlign: "center",
+              padding: "10px",
+            }}
+          >
+            Desenvolvido por Dalmoneki e ChatGPT ❤️ © 2024 - Todos os Direitos Reservados
+          </footer>
+        </div>
       </body>
     </html>
   );
 }
+
+const buttonStyle = {
+  background: "linear-gradient(to right, #FFA07A, #FFD700)",
+  color: "#fff",
+  padding: "10px 15px",
+  border: "none",
+  borderRadius: "5px",
+  margin: "0 5px",
+  cursor: "pointer",
+  fontWeight: "bold",
+};
