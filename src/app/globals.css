@@ -1,28 +1,15 @@
-:root {
-  --gold: #d4af37;
-  --dark-gold: #b8860b;
-  --black: #000;
-}
-
 body {
-  margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
+  margin: 0;
+  padding: 0;
 }
 
-.bg-black {
-  background-color: var(--black);
+a {
+  color: #ffc107;
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
-.text-gold {
-  color: var(--gold);
-}
-
-.bg-gold {
-  background-color: var(--gold);
-}
-
-.hover\\:bg-dark-gold:hover {
-  background-color: var(--dark-gold);
+a:hover {
+  color: #ffca28;
 }
